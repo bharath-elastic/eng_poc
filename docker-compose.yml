@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   es_main:
-    image: eng1_estack
+    image: eng_estack
     container_name: esmain
     stdin_open: true
     tty: true
@@ -21,7 +21,7 @@ services:
     networks:
       - esnet
   es:
-    image: eng1_estack
+    image: eng_estack
     stdin_open: true
     tty: true
     scale: 2
@@ -40,7 +40,7 @@ services:
     networks:
       - esnet
   jump:
-    image: eng1_jump
+    image: eng_jump
     stdin_open: true
     tty: true
     entrypoint: /bin/bash
