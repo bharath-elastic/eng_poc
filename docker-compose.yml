@@ -39,8 +39,8 @@ services:
       - esdata:/usr/share/elasticsearch/data
     networks:
       - esnet
-  jump:
-    image: eng_jump
+  kibana:
+    image: eng_kibana
     stdin_open: true
     tty: true
     entrypoint: /bin/bash

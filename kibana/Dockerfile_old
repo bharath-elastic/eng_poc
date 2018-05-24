@@ -1,0 +1,4 @@
+FROM openjdk:8u171-jdk-stretch
+RUN apt update && apt install -y curl && apt install -y tmux
+COPY .tmux.conf .
+ENTRYPOINT ["/bin/bash"]
