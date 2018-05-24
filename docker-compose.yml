@@ -1,0 +1,55 @@
+version: '2.2'
+services:
+  es_main:
+    image: eng1_estack
+    container_name: esmain
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/bash
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - esnet
+  es:
+    image: eng1_estack
+    stdin_open: true
+    tty: true
+    scale: 2
+    entrypoint: /bin/bash
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      - esnet
+  jump:
+    image: eng1_jump
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/bash
+    networks:
+      - esnet
+
+volumes:
+  esdata:
+    driver: local
+
+networks:
+  esnet:
