@@ -5,7 +5,8 @@ services:
     container_name: esmain
     stdin_open: true
     tty: true
-    entrypoint: /bin/bash
+    entrypoint: 
+      - /bin/bash
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -25,7 +26,8 @@ services:
     stdin_open: true
     tty: true
     scale: 2
-    entrypoint: /bin/bash
+    entrypoint: 
+      - /bin/bash
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -41,9 +43,12 @@ services:
       - esnet
   kibana:
     image: eng_kibana
+    ports:
+      - 5601:5601
     stdin_open: true
     tty: true
-    entrypoint: /bin/bash
+    entrypoint: 
+      - /bin/bash
     networks:
       - esnet
 
