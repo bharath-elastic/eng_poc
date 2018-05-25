@@ -1,6 +1,11 @@
 # eng_poc
 Proof of Concept for ENG classes
 
+##Pre-requisites
+- macosx or linux with tmux installed (windows, please use ubuntu vagrant box)
+- docker and docker-compose installed
+
+##Instructions
 - clone the repository
 - cd eng_poc
 - run docker-compose -p lab up -d
