@@ -2,7 +2,7 @@ version: '2.2'
 services:
   es_main:
     image: whoisb/eng_es
-    container_name: esmain
+    container_name: lab_esmain
     stdin_open: true
     tty: true
     entrypoint: 
