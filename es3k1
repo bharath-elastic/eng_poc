@@ -1,36 +1,32 @@
-tmux has-session -t es_eng
-if [ $? != 0 ]
-then
 # START:new
-    tmux new-session -s es_eng -n esmain -d
+tmux -f ./.tmux.conf new-session -s es_eng -n esmain -d  
 # END:new
 #
 # START:docker attach esmain
-    tmux send-keys -t es_eng 'docker attach lab_esmain' C-m
-    tmux send-keys -t es_eng 'clear' C-m
+tmux send-keys -t es_eng 'docker attach lab_esmain' C-m
+tmux send-keys -t es_eng 'clear' C-m
 # END:docker attach esmain
 #
 # START:docker attach es_1 in new window
-    tmux new-window -n es_1 -t es_eng
-    tmux send-keys -t es_eng:es_1 'docker attach lab_es_1' C-m
-    tmux send-keys -t es_eng:es_1 'clear' C-m
+tmux new-window -n es_1 -t es_eng
+tmux send-keys -t es_eng:es_1 'docker attach lab_es_1' C-m
+tmux send-keys -t es_eng:es_1 'clear' C-m
 # END:docker attach es_1 in new window
 #
 # START:docker attach es_2 in new window
-    tmux new-window -n es_2 -t es_eng
-    tmux send-keys -t es_eng:es_2 'docker attach lab_es_2' C-m
-    tmux send-keys -t es_eng:es_2 'clear' C-m
+tmux new-window -n es_2 -t es_eng
+tmux send-keys -t es_eng:es_2 'docker attach lab_es_2' C-m
+tmux send-keys -t es_eng:es_2 'clear' C-m
 # END:docker attach es_2 in new window
 #
 # START:docker attach kibana_1 in new window
-    tmux new-window -n kibana_1 -t es_eng
-    tmux send-keys -t es_eng:kibana_1 'docker attach lab_kibana_1' C-m
-    tmux send-keys -t es_eng:kibana_1 'clear' C-m
+tmux new-window -n kibana_1 -t es_eng
+tmux send-keys -t es_eng:kibana_1 'docker attach lab_kibana_1' C-m
+tmux send-keys -t es_eng:kibana_1 'clear' C-m
 # END:docker attach kibana_1 in new window
 #
 # START:selectwindow
-    tmux select-window -t es_eng:1
+tmux select-window -t es_eng:1
 # END:selectwidow
-    tmux attach -t es_eng
-fi
 tmux attach -t es_eng
+
