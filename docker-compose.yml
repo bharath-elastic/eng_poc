@@ -1,7 +1,7 @@
 version: '2.2'
 services:
   es_main:
-    image: eng_es
+    image: whoisb/eng_es
     container_name: esmain
     stdin_open: true
     tty: true
@@ -22,7 +22,7 @@ services:
     networks:
       - esnet
   es:
-    image: eng_es
+    image: whoisb/eng_es
     stdin_open: true
     tty: true
     scale: 2
@@ -42,7 +42,7 @@ services:
     networks:
       - esnet
   kibana:
-    image: eng_kibana
+    image: whoisb/eng_kibana
     ports:
       - 5601:5601
     stdin_open: true
