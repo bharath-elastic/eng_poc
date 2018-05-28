@@ -4,6 +4,9 @@ Proof of Concept for ENG classes
 ## Pre-requisites
 - macosx or linux with tmux installed (windows, please use ubuntu vagrant box)
 - docker and docker-compose installed
+  - vm.max_map_count=262144
+  - linux sysctl -w vm.max_map_count=262144
+ - macos https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-cli-run-prod-mode
 
 ## Instructions
 - clone the repository
